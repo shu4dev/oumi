@@ -46,6 +46,7 @@ training:
   enable_gradient_checkpointing: True
   per_device_train_batch_size: 1 # Must be 1: the model generates variable-sized image features
   gradient_accumulation_steps: 1
+  use_peft: True
   # max_steps: 20 # Uncomment if you want to limit the number of training steps.
   num_train_epochs: 1
   # If this is not passed, checkpoints may be saved which are suitable for resuming training but not for loading from HF
@@ -72,7 +73,22 @@ training:
   include_performance_metrics: True
   log_model_summary: False
   enable_wandb: True
-
+  
+peft:
+  q_lora: False
+  lora_r: 8
+  lora_alpha: 16
+  lora_dropout: 0.05
+  lora_target_modules:
+    - "q_proj"
+    - "v_proj"
+    - "o_proj"
+    - "k_proj"
+    - "gate_proj"
+    - "up_proj"
+    - "down_proj"
+  lora_init_weights: DEFAULT
+  
 fsdp:
   enable_fsdp: True
   sharding_strategy: "HYBRID_SHARD"
