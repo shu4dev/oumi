@@ -34,9 +34,9 @@ data:
         transform_num_workers: "auto"
         dataset_kwargs:
           hf_dataset_path: "shu4dev/DCVLR_10K"
-          image_column: "path"
-          question_column: "question"
-          answer_column: "reasoning_trace"
+          image_column: "image"
+          question_column: "problem"
+          answer_column: "solution"
           return_tensors: True
           processor_name: "Qwen/Qwen2.5-VL-7B-Instruct"
 
