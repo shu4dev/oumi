@@ -112,17 +112,9 @@ export MODEL_NAME="shu4dev/DCVLR_10K"
 export WORK_DIR="./output"
 mkdir -p "$WORK_DIR"
 export DATASETS="VMCBench_DEV OlympiadBench LiveXivTQA Omni3DBench atomic_dataset electro_dataset optics_dataset quantum_dataset statistics_dataset mechanics_dataset"
-python scripts/wandb_logger.py --run-and-log \
-                               --data $DATASETS \
-                               --work-dir $WORK_DIR \
-                               --use-vllm \
-                               --max-output-tokens 8192 \
-                               --pass-custom-model $MODEL_NAME
+python scripts/wandb_logger.py --run-and-log --data $DATASETS --work-dir $WORK_DIR --use-vllm --max-output-tokens 8192 --pass-custom-model $MODEL_NAME --batch-size 4 --verbose
 
-python scripts/dcvlr_standalone_scorer.py --benchmarks "${DATASETS[@]}" \
-                                        --input-dir "${WORK_DIR}/${MODEL_NAME}" \
-                                        --llm-backend openai \
-                                        --model gpt-4o-mini
+python scripts/dcvlr_standalone_scorer.py --benchmarks "${DATASETS[@]}" --input-dir "${WORK_DIR}/${MODEL_NAME}" --llm-backend openai --model gpt-4o-mini
 ```
 
 ## How to Cite DCVLR
