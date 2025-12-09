@@ -84,7 +84,7 @@ Model training is extremely straightforward, requiring only a single command:
 
 ```bash
 export MY_CONFIG="./configs/projects/dcvlr/starter_kit/qwenvl-openr1.yaml"
-torchrun --nproc-per-node 8 --standalone -m oumi train -c $MY_CONFIG
+torchrun --nproc-per-node 2 --standalone -m oumi train -c $MY_CONFIG
 ```
 
 We provide configurations for three models; Molmo-D, Molmo-O, and QwenVL-2.5. Other models such as  InternVL3 may also be used in the competition.
