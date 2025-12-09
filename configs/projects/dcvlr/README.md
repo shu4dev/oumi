@@ -108,7 +108,7 @@ We use a modified version of [VLMEvalKit](https://github.com/oumi-ai/VLMEvalKit)
 Model evaluation can also be conducted using a simple one-line command. We give an example with four datasets; these datasets are not guaranteed to be the ones we use in the competition, however, they are a good starting point for the types of tasks we are considering.
 
 ```bash
-export MODEL_NAME="shu4dev/DCVLR_10K"
+export MODEL_NAME="shu4dev/Qwen2.5_VL_10K"
 export WORK_DIR="./output"
 mkdir -p "$WORK_DIR"
 export DATASETS="VMCBench_DEV OlympiadBench LiveXivTQA Omni3DBench atomic_dataset electro_dataset optics_dataset quantum_dataset statistics_dataset mechanics_dataset"
