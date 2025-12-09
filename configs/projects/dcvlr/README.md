@@ -83,7 +83,7 @@ DCVLR experiments can be run using the main branch of the Oumi repository. We pr
 Model training is extremely straightforward, requiring only a single command:
 
 ```bash
-export MY_CONFIG=<PATH/TO/qwenvl-openr1.yaml>
+export MY_CONFIG="./configs/projects/dcvlr/starter_kit/qwenvl-openr1.yaml"
 torchrun --nproc-per-node 8 --standalone -m oumi train -c $MY_CONFIG
 ```
 
