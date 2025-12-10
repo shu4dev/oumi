@@ -114,7 +114,7 @@ mkdir -p "$WORK_DIR"
 export DATASETS="MathVision MathVista MathVerse Dynamath WeMath LogicVista"
 export DATASETS="VMCBench_DEV OlympiadBench LiveXivTQA Omni3DBench atomic_dataset electro_dataset optics_dataset quantum_dataset statistics_dataset mechanics_dataset"
 pip install flash-attn --no-build-isolation
-
+pip install https://github.com/dao-ailab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu12torch2.6cxx11abiFALSE-cp311-cp311-linux_x86_64.whl
 python scripts/wandb_logger.py --run-and-log --data $DATASETS --work-dir $WORK_DIR --use-vllm --pass-custom-model $MODEL_NAME --batch-size 4 --verbose
 python run.py --data $DATASETS --work-dir $WORK_DIR --use-vllm --pass-custom-model $MODEL_NAME --batch-size 8
 python scripts/dcvlr_standalone_scorer.py --benchmarks "${DATASETS[@]}" --input-dir "${WORK_DIR}/${MODEL_NAME}" --llm-backend openai --model gpt-4o-mini
