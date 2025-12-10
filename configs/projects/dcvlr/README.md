@@ -113,6 +113,7 @@ export WORK_DIR="./output"
 mkdir -p "$WORK_DIR"
 export DATASETS="MathVision MathVista MathVerse Dynamath WeMath LogicVista"
 export DATASETS="VMCBench_DEV OlympiadBench LiveXivTQA Omni3DBench atomic_dataset electro_dataset optics_dataset quantum_dataset statistics_dataset mechanics_dataset"
+pip install flash-attn --no-build-isolation
 
 python scripts/wandb_logger.py --run-and-log --data $DATASETS --work-dir $WORK_DIR --use-vllm --pass-custom-model $MODEL_NAME --batch-size 4 --verbose
 python run.py --data $DATASETS --work-dir $WORK_DIR --use-vllm --pass-custom-model $MODEL_NAME --batch-size 8
